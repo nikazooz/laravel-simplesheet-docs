@@ -7,7 +7,7 @@
 You can explicitly queue the import by using `::queueImport`.
 
 ```
-Excel::queueImport(new UsersImport, 'users.xlsx');
+Simplesheet::queueImport(new UsersImport, 'users.xlsx');
 ```
 
 When using the `Importable` trait you can use the `queue` method:
@@ -25,7 +25,7 @@ The `ShouldQueue` is always required.
 When `ShouldQueue` is used, the import will automatically be queued.
 
 ```
-Excel::import(new UsersImport, 'users.xlsx');
+Simplesheet::import(new UsersImport, 'users.xlsx');
 ```
 
 ## Handling failures in queued imports
@@ -39,9 +39,8 @@ use App\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Nikazooz\Simplesheet\Concerns\ToModel;
 use Nikazooz\Simplesheet\Concerns\WithEvents;
-use Nikazooz\Simplesheet\Concerns\WithChunkReading;
 
-class UsersImport implements ToModel, WithChunkReading, ShouldQueue, WithEvents
+class UsersImport implements ToModel, ShouldQueue, WithEvents
 {
     public function __construct(User $importedBy)
     {

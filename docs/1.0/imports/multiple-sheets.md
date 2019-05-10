@@ -169,5 +169,5 @@ Now you can use the `onlySheets` method to indicate which sheets should be loade
 $import = new UsersImport();
 $import->onlySheets('Worksheet 1', 'Worksheet 3');
 
-Excel::import($import, 'users.xlsx');
+Simplesheet::import($import, 'users.xlsx');
 ```

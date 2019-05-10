@@ -32,9 +32,6 @@ It's as easy as calling `->queue()` now.
 return back()->withSuccess('Export started!');
 ```
 
-Behind the scenes the query will be chunked and multiple jobs will be chained. These jobs will be executed in the correct order,
-and will only execute if none of the previous have failed.
-
 ### Implicit Export queueing
 
 You can also mark an export implicitly as a queued export. You can do this by using Laravel's `ShouldQueue` contract.
