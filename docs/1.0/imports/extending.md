@@ -103,35 +103,6 @@ class UsersImport implements WithEvents
 | Event name | Payload | Explanation |
 |---- |----| ----|
 |`Nikazooz\Simplesheet\Events\BeforeImport` | `$event->reader : Reader` | Event gets raised at the start of the process. |
-| `Nikazooz\Simplesheet\Events\AfterImport` | `$event->reader : Reader` | Event gets raised at the end of the  process. |
+| `Nikazooz\Simplesheet\Events\AfterImport` | `$event->reader : Reader` | Event gets raised at the end of the  process.|
 | `Nikazooz\Simplesheet\Events\BeforeSheet` | `$event->sheet : Sheet` | Event gets raised just after the sheet is created. |
 | `Nikazooz\Simplesheet\Events\AfterSheet` | `$event->sheet : Sheet` | Event gets raised at the end of the sheet process. |
-
-
-## Macroable
-
-Both `Reader` and `Sheet` are "macroable" (which means they can easily be extended to fit your needs).
-Both Reader and Sheet have a `->getDelegate()` method which returns the underlying PhpSpreadsheet class.
-This will allow you to add custom macros as shortcuts to PhpSpreadsheet methods that are not available in this package.
-
-### Reader
-
-```php
-use \Nikazooz\Simplesheet\Reader;
-
-Reader::macro('setCreator', function (Reader $reader, string $creator) {
-    $reader->getDelegate()->getProperties()->setCreator($creator);
-});
-```
-
-### Sheet
-
-```php
-use \Nikazooz\Simplesheet\Sheet;
-
-Sheet::macro('setOrientation', function (Sheet $sheet, $orientation) {
-    $sheet->getDelegate()->getPageSetup()->setOrientation($orientation);
-});
-```
-
-For PhpSpreadsheet methods, please refer to [their documentation](https://phpspreadsheet.readthedocs.io/).
