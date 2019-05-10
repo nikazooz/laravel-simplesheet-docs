@@ -15,5 +15,8 @@ exports and imports.
 * Export queries with automatic chunking for better performance.
 * Queue exports for better performance.
 * Easily import to collections.
-* Read the Excel file in chunks.
 * Handle the import inserts in batches.
+
+## Credits
+
+This package uses a lot of code copied from [Laravel Excel](https://laravel-excel.maatwebsite.nl) and probably wouldn't exist without it, so a big thanks to the Laravel Excel team for their work on that amazing package. Make sure to check it out!
