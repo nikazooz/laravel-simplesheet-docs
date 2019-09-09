@@ -43,13 +43,13 @@ module.exports = {
                 text: 'Version',
                 link: '/',
                 items: [
-                    {text: '1.0', link: '/1.0/'},
+                    {text: '1.x', link: '/1.x/'},
                 ]
             },
         ],
 
         sidebar: {
-            '/1.0/': require('./1.0'),
+            '/1.x/': require('./1.x'),
         },
     },
 };

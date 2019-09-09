@@ -5,7 +5,7 @@
 ## Requirements
 
 * PHP: `^7.1`
-* Laravel: `^5.5`
+* Laravel: `>=5.5`
 * Box Spout: `^2.7.3`
 * PHP extension `php_zip` enabled
 * PHP extension `php_xml` enabled
