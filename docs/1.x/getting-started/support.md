@@ -8,9 +8,9 @@ Our software is free and open source, meaning that the use of our software is op
 
 Versions will be supported for a limited amount of time.
 
-| Version | Laravel Version | Php Version | Support                |
-| ------- | --------------- | ----------- | ---------------------- |
-| 1.x     | 5.5 - 8.*       | ^7.1        | Bug and security fixes |
+| Version | Laravel Version | Php Version | Box Spout | Support                |
+| ------- | --------------- | ----------- | --------- | ---------------------- |
+| 1.x     | 5.5 - 8.*       | ^7.1        | ^2.7      | Bug and security fixes |
 
 ::: warning PHP version support
 Support for PHP versions will only be maintained for a period of six months beyond the end-of-life of that PHP version.
