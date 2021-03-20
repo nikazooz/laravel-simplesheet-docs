@@ -4,9 +4,9 @@
 
 ## Requirements
 
-* PHP: `^7.1`
+* PHP: `>=7.2`
 * Laravel: `>=5.5`
-* Box Spout: `^2.7.3`
+* Box Spout: `^3.2`
 * PHP extension `php_zip` enabled
 * PHP extension `php_xml` enabled
 * PHP extension `php_gd2` enabled
