@@ -44,12 +44,14 @@ module.exports = {
                 link: '/',
                 items: [
                     {text: '1.x', link: '/1.x/'},
+                    {text: '2.x', link: '/2.x/'},
                 ]
             },
         ],
 
         sidebar: {
             '/1.x/': require('./1.x'),
+            '/2.x/': require('./2.x'),
         },
     },
 };
