@@ -155,9 +155,8 @@ In case no writer type can be detected, a `Nikazooz\Simplesheet\Exceptions\NoTyp
 #### Starting the Writing process
 
 The `Simplesheet` manager will then delegate the handling to the `Nikazooz\Simplesheet\Writer`. The first action of the `Writer` is to register the event listeners that are registered.
-Next it will create a new `PhpOffice\PhpSpreadsheet\Spreadsheet` instance that we will use to convert our `Export` object to.
 
-The first event that is raised, is the `BeforeExport` event. This is raised just after the `Spreadsheet` instance is created and allows early access to it.
+The first event that is raised, is the `BeforeExport` event. This is raised just after the `Box\Spout\Writer\WriterInterface` instance is created and allows early access to it.
 
 #### Multiple sheets
 
@@ -167,11 +166,10 @@ Then it will delegate the further handling of each sheet to the `Nikazooz\Simple
 
 #### Processing the sheets
 
-In the `Sheet` class, the most heavy lifting happens. It first will create a `PhpOffice\PhpSpreadsheet\Worksheet\Worksheet` instance. Then it will raise the `BeforeSheet` event which allows you to hook into the moment just before the sheet handling starts.
+In the `Sheet` class, the most heavy lifting happens. It first will create a `Box\Spout\Writer\Common\Sheet` instance. Then it will raise the `BeforeSheet` event which allows you to hook into the moment just before the sheet handling starts.
 
 Then it will determine what kind of export we are dealing with: `FromQuery`, `FromArray`, `FromCollection` or `FromView`. Based on that it will start the connected export process.
 
-- `FromView` will pass on the rendered `Blade` view to PhpSpreadsheet's `Html` Reader. That Reader will turn the table html into Simplesheet cells. It also handles some inline styles (color and background color) and col/rowspans.
 - The **Query** passed with the `FromQuery` will automatically be chunked and each chunk will be appended to the Sheet. The chunking is done to limit the amount of Eloquent object it needs to keep in memory. It greatly reduces memory usage.
 - The entire array of Collection will directly be appended to the Sheet.
 
@@ -181,10 +179,10 @@ Then it will handling column formatting (`WithColumnFormatting` concern) and cel
 
 To close off the Sheet processing, it will raise a `AfterSheet` event.
 
-### Passing on to PhpSpreadsheet
+### Passing on to Box Spout
 
 After the sheets are processed, the writing process will start. The writing process is started by raising the `BeforeWriting` event; this allow you to hook into the process of writing.
-Next we will create a new `PhpSpreadsheet Writer` based on the writer type that was determined. Then it will save it to a temporary file and return that filepath to the `Simplesheet` manager.
+Next we will create a new `Box Spout Writer` based on the writer type that was determined. Then it will save it to a temporary file and return that filepath to the `Simplesheet` manager.
 
 ### Creating a Response
 
@@ -299,12 +297,10 @@ In case no reader type can be detected, a `Nikazooz\Simplesheet\Exceptions\NoTyp
 #### Starting the Reading process
 
 The `Simplesheet` manager will then delegate the handling to the `Nikazooz\Simplesheet\Reader`. The first action of the `Reader` is to register the event listeners that are registered.
-It will copy the file from Laravel's `Filesystem` to the local filesystem, so PhpSpreadsheet can read it.
-Next it will create a PhpSpreadsheet `Reader` based on the reader type that was given and load the file into a `PhpOffice\PhpSpreadsheet\Spreadsheet` instance.
+It will copy the file from Laravel's `Filesystem` to the local filesystem, so Box Spout can read it.
+Next it will create a Box Spout `Reader` based on the reader type that was given and load the file into a `Box\Spout\Reader\ReaderInterface` instance.
 
-Next it will create a new `PhpOffice\PhpSpreadsheet\Spreadsheet` instance that we will use to read our `Import` object from.
-
-The first event that is raised, is the `BeforeImport` event. This is raised just after the `Spreadsheet` instance is loaded and allows early access to it.
+The first event that is raised, is the `BeforeImport` event. This is raised just after the `Box\Spout\Reader\ReaderInterface` instance is loaded and allows early access to it.
 
 #### Multiple sheets
 

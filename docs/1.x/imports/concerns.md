@@ -15,7 +15,7 @@ pageClass: no-toc
 |`Nikazooz\Simplesheet\Concerns\WithLimit`| Define a limit of the amount of rows that need to be imported. |
 |`Nikazooz\Simplesheet\Concerns\WithMapping`| Map the row before being called in ToModel/ToCollection. | |
 |`Nikazooz\Simplesheet\Concerns\WithMultipleSheets`| Enable multi-sheet support. Each sheet can have its own concerns (except this one). | [Multiple Sheets](/1.0/imports/multiple-sheets.html) |
-|`Nikazooz\Simplesheet\Concerns\WithEvents`| Register events to hook into the PhpSpreadsheet process. | [Events](/1.0/imports/extending.html#events) |
+|`Nikazooz\Simplesheet\Concerns\WithEvents`| Register events to hook into the Box Spout process. | [Events](/1.0/imports/extending.html#events) |
 |`Nikazooz\Simplesheet\Concerns\WithCustomCsvSettings`| Allows to run custom Csv settings for this specific importable. | |
 |`Nikazooz\Simplesheet\Concerns\WithStartRow`| Define a custom start row. | |
 |`Nikazooz\Simplesheet\Concerns\WithValidation`| Validates each row against a set of rules. | [Row Validation](/1.0/imports/validation.html) |
